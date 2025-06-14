@@ -34,13 +34,20 @@ export const BlockchainProvider = ({ children }) => {
     }
   };
 
+
+  const disconnectWallet=async()=>{
+    setAccount("")
+    setSigner(null)
+    setConnect(false)
+  }
+
   // useEffect(() => {
   //   connectWallet();
   // }, []);
 
   return (
     <BlockchainContext.Provider
-      value={{ provider, signer, contract, account, connectWallet,connect }}
+      value={{ provider, signer, contract, account, connectWallet,disconnectWallet,connect}}
     >
       {children}
     </BlockchainContext.Provider>
